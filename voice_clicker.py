@@ -20,6 +20,7 @@ def recognize_speech():
 
 def main():
     while True:
+        print("Starting speech recognition...")
         text = recognize_speech()
         if text:
             if (
@@ -28,13 +29,18 @@ def main():
             ):
                 pyautogui.press("left")
                 print("Left arrow key pressed")
+                break
             elif (
                 "right" in text.lower()
                 or "starboard" in text.lower()
             ):
                 pyautogui.press("right")
                 print("Right arrow key pressed")
+                break
+        else:
+            print("No valid command recognized. Please try again.")
 
 
 if __name__ == "__main__":
     main()
+    
