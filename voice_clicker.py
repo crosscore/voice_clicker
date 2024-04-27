@@ -18,27 +18,25 @@ def recognize_speech():
         print(f"Error occurred in speech recognition service: {e}")
 
 
+def process_command(text):
+    if "left" in text.lower() or "port" in text.lower():
+        pyautogui.press("left")
+        print("Left arrow key pressed")
+    elif "right" in text.lower() or "starboard" in text.lower():
+        pyautogui.press("right")
+        print("Right arrow key pressed")
+    else:
+        print("No valid command recognized.")
+
+
 def main():
     while True:
         print("Starting speech recognition...")
         text = recognize_speech()
         if text:
-            if (
-                "left" in text.lower()
-                or "port" in text.lower()
-            ):
-                pyautogui.press("left")
-                print("Left arrow key pressed")
-                break
-            elif (
-                "right" in text.lower()
-                or "starboard" in text.lower()
-            ):
-                pyautogui.press("right")
-                print("Right arrow key pressed")
-                break
+            process_command(text)
         else:
-            print("No valid command recognized. Please try again.")
+            print("Please try again.")
 
 
 if __name__ == "__main__":
