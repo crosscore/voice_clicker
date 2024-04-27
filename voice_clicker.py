@@ -25,14 +25,12 @@ def main():
             if (
                 "left" in text.lower()
                 or "port" in text.lower()
-                or "nav left" in text.lower()
             ):
                 pyautogui.press("left")
                 print("Left arrow key pressed")
             elif (
                 "right" in text.lower()
                 or "starboard" in text.lower()
-                or "nav right" in text.lower()
             ):
                 pyautogui.press("right")
                 print("Right arrow key pressed")
